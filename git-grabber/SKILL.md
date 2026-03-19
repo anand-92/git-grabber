@@ -31,7 +31,7 @@ The script follows the same general approach as DownGit:
 
 ## Workflow
 
-1. Use the URL provided in the arguments as the source.
+1. Use the URL provided in the $ARGUMENTS as the source.
 2. Default the destination to the current working directory unless the user asked for a different target.
 3. Do not overwrite an existing top-level target silently. If there is a collision, either confirm with the user or use `--overwrite` if they already asked for replacement.
 4. Run the bundled script with an absolute destination path.
@@ -43,16 +43,16 @@ Copy a folder and preserve its root directory name:
 
 ```bash
 python3 scripts/github_path_cloner.py \
-  "https://github.com/leemysw/agent-kit/tree/main/docs/guides" \
-  --dest "/absolute/destination/path"
+  "$ARGUMENTS" \
+  --dest "$PWD"
 ```
 
 Copy only the folder contents into the destination directory:
 
 ```bash
 python3 scripts/github_path_cloner.py \
-  "https://github.com/leemysw/agent-kit/tree/main/docs/guides" \
-  --dest "/absolute/destination/path" \
+  "$ARGUMENTS" \
+  --dest "$PWD" \
   --strip-root
 ```
 
@@ -60,16 +60,16 @@ Copy a single file:
 
 ```bash
 python3 scripts/github_path_cloner.py \
-  "https://github.com/leemysw/agent-kit/blob/main/README.md" \
-  --dest "/absolute/destination/path"
+  "$ARGUMENTS" \
+  --dest "$PWD"
 ```
 
 Replace an existing copied target when the user explicitly wants that:
 
 ```bash
 python3 scripts/github_path_cloner.py \
-  "<github-url>" \
-  --dest "/absolute/destination/path" \
+  "$ARGUMENTS" \
+  --dest "$PWD" \
   --overwrite
 ```
 

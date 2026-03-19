@@ -347,8 +347,17 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
+    # Clean the URL in case it's passed with extra quotes or whitespace from the CLI
+    url = args.url.strip().strip("'").strip('"')
+
+    if not url:
+        print("Error: No URL provided.", file=sys.stderr)
+        return 1
+
+    print(f"Grabbing from: {url}")
+
     try:
-        selection = parse_url(args.url)
+        selection = parse_url(url)
         destination = Path(args.dest).expanduser().resolve()
         if destination.exists() and not destination.is_dir():
             raise GitHubPathClonerError(f"Destination is not a directory: {destination}")
