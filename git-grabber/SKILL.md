@@ -1,5 +1,5 @@
 ---
-name: github-path-cloner
+name: git-grabber
 description: Copy a specific public GitHub folder or file into the current working directory from a shared GitHub tree/blob URL. Use when a user shares a GitHub folder or file link and asks to clone, grab, download, or copy only that subpath instead of the whole repo.
 ---
 
