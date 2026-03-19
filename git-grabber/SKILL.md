@@ -7,6 +7,10 @@ description: Copy a specific public GitHub folder or file into the current worki
 
 Copy a specific public GitHub folder or file into the current working directory without cloning the entire repository.
 
+## Source URL
+
+$ARGUMENTS
+
 ## When to Use
 
 Invoke this skill when the user:
@@ -27,7 +31,7 @@ The script follows the same general approach as DownGit:
 
 ## Workflow
 
-1. Use the shared GitHub URL as the source.
+1. Use the URL provided in the arguments as the source.
 2. Default the destination to the current working directory unless the user asked for a different target.
 3. Do not overwrite an existing top-level target silently. If there is a collision, either confirm with the user or use `--overwrite` if they already asked for replacement.
 4. Run the bundled script with an absolute destination path.
